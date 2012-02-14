@@ -21,7 +21,7 @@ sign_and_send(Params, Host,APIVersion, AccessKey, SecretKey)->
             base64:encode(crypto:sha_mac(SecretKey, ToSign)))
         ),
     URL = "http://"++ Host ++ "/?" ++ QueryString ++ "&Signature=" ++ Signature,
-    case http:request(URL) of
+    case httpc:request(URL) of
         {ok, {{_Version, 200, _ReasonPhrase}, _Headers, Body}} -> {ok, Body};
         {ok, {{_Version, Code, ReasonPhrase}, _Headers, _Body}} -> {error, {Code, ReasonPhrase} }
     end.
