@@ -17,7 +17,7 @@
                   access,
                   secret
                   }).
--define(APIVERSION, "2008-12-01").
+-define(APIVERSION, "2012-03-01").
 -define(ENDPOINT, "ec2.amazonaws.com").
 
 %-=====================================================================-
